@@ -96,8 +96,16 @@ export default class QRCode extends PureComponent {
   }
   render () {
     const {
-      getRef, size, color, backgroundColor,
-      logo, logoSize, logoMargin, logoBackgroundColor, logoBorderRadius
+      backgroundColor,
+      color,
+      getRef,
+      logo,
+      logoBackgroundColor,
+      logoBorderRadius,
+      logoMargin,
+      logoSize,
+      size,
+      ...props
     } = this.props
 
     const logoPosition = size / 2 - logoSize / 2 - logoMargin
@@ -105,7 +113,7 @@ export default class QRCode extends PureComponent {
     const logoWrapperBorderRadius = logoBorderRadius + (logoBorderRadius && logoMargin)
 
     return (
-      <Svg ref={getRef} width={size} height={size}>
+      <Svg {...props} ref={getRef} width={size} height={size}>
         <Defs>
           <ClipPath id='clip-wrapper'>
             <Rect
